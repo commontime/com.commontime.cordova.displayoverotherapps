@@ -34,11 +34,11 @@ public class DisplayOverOtherApps extends CordovaPlugin {
     @Override
     public boolean execute(String action, final JSONArray data, final CallbackContext callbackContext) throws JSONException
     {
-        if(action.equals("enabled"))
+        if (action.equals("enabled"))
         {
             PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, false);
 
-            if (Build.VERSION.SDK_INT >= 29) {
+            if (Build.VERSION.SDK_INT >= 23) {
                 pluginResult = new PluginResult(PluginResult.Status.OK, Settings.canDrawOverlays(cordova.getActivity()));
             }
             callbackContext.sendPluginResult(pluginResult);
