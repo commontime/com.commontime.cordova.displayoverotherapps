@@ -1,0 +1,29 @@
+{
+  "name": "com.commontime.cordova.displayoverotherapps",
+  "version": "1.0.0",
+  "description": "Commontime cordova displayoverotherapps plugin.",
+  "cordova": {
+    "id": "com.commontime.cordova.displayoverotherapps",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "URL"
+  },
+  "keywords": [
+    "cordova",
+    "commontime",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Commontime Ltd",
+  "license": "MIT"
+}

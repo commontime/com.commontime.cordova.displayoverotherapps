@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.commontime.cordova.displayoverotherapps"
+        version="1.0.0">
+
+  <name>DisplayOverOtherApps</name>
+
+  <asset src="www/displayoverotherapps.js" target="js/displayoverotherapps.js"/>
+
+  <js-module src="www/displayoverotherapps.js" name="displayoverotherapps">
+    <clobbers target="displayoverotherapps" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="DisplayOverOtherApps">
+        <param name="android-package" value="com.commontime.plugin.DisplayOverOtherApps"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <preference name="BACKGROUNDCOLOR" default="" />
+    <preference name="TEXTCOLOR" default="" />
+    <preference name="BUTTONBACKGROUNDCOLOR" default="" />
+    <preference name="BUTTONTEXTCOLOR" default="" />
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application"> 
+
+    	<activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="" android:launchMode="singleTop" android:name="com.commontime.plugin.DisplayOverAppsEnableActivity" android:windowSoftInputMode="adjustResize">
+    	</activity>
+
+      <meta-data android:name="displayOverOtherAppsBackgroundColor" android:value="$BACKGROUNDCOLOR" />
+      <meta-data android:name="displayOverOtherAppsTextColor" android:value="$TEXTCOLOR" />
+      <meta-data android:name="displayOverOtherAppsButtonBackgroundColor" android:value="$BUTTONBACKGROUNDCOLOR" />
+      <meta-data android:name="displayOverOtherAppsButtonTextColor" android:value="$BUTTONTEXTCOLOR" />
+            
+    </config-file>
+
+    <source-file src="src/android/DisplayOverOtherApps.java" target-dir="src/com/commontime/plugin/"/>
+    <source-file src="src/android/DisplayOverAppsEnableActivity.java" target-dir="src/com/commontime/plugin/"/>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+   </config-file>
+    
+  </platform>
+
+</plugin>
