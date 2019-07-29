@@ -26,8 +26,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cti.cm.dev.R;
-
 public class DisplayOverAppsEnableActivity extends Activity
 {
     private final String ENABLE_MESSAGE = "For the %s app to function correctly, please enable the <b><i>Display over other apps</i></b> setting for this app.";
@@ -83,7 +81,7 @@ public class DisplayOverAppsEnableActivity extends Activity
         {
             try {
                 ll.setBackgroundColor(Color.parseColor(bgColor));
-            } catch (Exception e) { e.printStackTrace();}
+            } catch (Exception e) { e.printStackTrace(); }
         }
 
         ImageView logoImageView = new ImageView(getApplicationContext());
@@ -92,7 +90,10 @@ public class DisplayOverAppsEnableActivity extends Activity
         lp_iv.setMargins(0, 60, 0, 50);
         logoImageView.setLayoutParams(lp_iv);
 
-        logoImageView.setImageResource(R.mipmap.icon);
+        try {
+            Drawable icon = getPackageManager().getApplicationIcon(getPackageName());
+            logoImageView.setImageDrawable(icon);
+        } catch (Exception e) { e.printStackTrace(); }
 
         ll.addView(logoImageView);
 
@@ -105,7 +106,7 @@ public class DisplayOverAppsEnableActivity extends Activity
         {
             try {
                 descriptionTextView.setTextColor(Color.parseColor(txtColor));
-            } catch (Exception e) { e.printStackTrace();}
+            } catch (Exception e) { e.printStackTrace(); }
         }
 
         LinearLayout.LayoutParams lp_tv = new LinearLayout.LayoutParams(
@@ -143,7 +144,7 @@ public class DisplayOverAppsEnableActivity extends Activity
 
         try {
             enableButton.setTextColor(Color.parseColor(buttonTxtColor));
-        } catch (Exception e) { e.printStackTrace();}
+        } catch (Exception e) { e.printStackTrace(); }
 
         try {
             Drawable buttonDrawable = enableButton.getBackground();
@@ -151,7 +152,7 @@ public class DisplayOverAppsEnableActivity extends Activity
             //the color is a direct color int and not a color resource
             DrawableCompat.setTint(buttonDrawable, Color.parseColor(buttonBgColor));
             enableButton.setBackground(buttonDrawable);
-        } catch (Exception e) { e.printStackTrace();}
+        } catch (Exception e) { e.printStackTrace(); }
 
         enableButton.setOnClickListener(new View.OnClickListener() {
             @Override
