@@ -41,9 +41,11 @@ public class DisplayOverAppsEnableActivity extends Activity
 
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        actionBar.setDisplayHomeAsUpEnabled(false);
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            actionBar.setDisplayHomeAsUpEnabled(false);
+        }
 
         Bundle extras = getIntent().getExtras();
 
